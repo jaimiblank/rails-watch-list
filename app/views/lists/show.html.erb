@@ -5,6 +5,13 @@
   <%= bookmark.comment %>
   <% end %>
 
-<%= link_to "Add a new bookmark to this list", new_list_bookmark_path(@list) %>
+<h2>Add a new movie to this list</h2>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie, collection: Movie.all, label_method: :title, value_method: :id, prompt: "Choose a movie" %>
+  <%= f.input :comment, label: 'Comment' %>
+  <%= f.button :submit %>
+<% end %>
+
+
 <%= link_to "🏠", lists_path %>
 </div>
