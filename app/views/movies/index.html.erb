@@ -1,0 +1,9 @@
+<h1>Here is your movie index</h1>
+<h2>Here are all of your movies:</h2>
+<ul> <%  @movies.each do |movie| %>
+<li> <%=  link_to movie.title, movie_path(movie) %>
+</li>
+<% end  %>
+
+<%= link_to "See Lists", lists_path, class: 'btn btn-primary'  %>
+</ul>
